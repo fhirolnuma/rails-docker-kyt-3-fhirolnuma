@@ -11,7 +11,6 @@ jobs:
       - checkout:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
-
   test:
     docker:
       - image: circleci/ruby:2.7
