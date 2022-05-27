@@ -1,13 +1,13 @@
-version: 2.1 #バージョン宣言
+version: 2.1 
 orbs: 
   ruby: circleci/ruby@1.1.2 
 
-jobs: #jobsの中に「build」と「test」がある。
+jobs: 
   build:
     docker:
       - image: circleci/ruby:2.7
     working_directory: ~/rails-docker-kyt-3-fhirolnuma/src
-    steps: #stepsでjobsの中身を書いていく。
+    steps: 
       - checkout:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
