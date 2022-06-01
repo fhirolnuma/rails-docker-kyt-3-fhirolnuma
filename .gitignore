@@ -37,3 +37,6 @@ src/.yarn-integrity
 
 # MySQLもバージョン管理から外しておく
 src/db/mysql_data
+
+
+
