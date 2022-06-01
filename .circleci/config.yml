@@ -12,7 +12,7 @@ jobs:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
 
-  test:
+  test2:
     docker:
       - image: circleci/ruby:2.7
       - image: circleci/mysql:5.5
@@ -42,6 +42,6 @@ Workflows:
   build_and_test:
     jobs:
       - build
-      - test:
+      - test2:
           requires:
             - build
