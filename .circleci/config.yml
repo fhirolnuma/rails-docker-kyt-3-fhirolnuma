@@ -44,4 +44,4 @@ Workflows:
       - build2
       - test2:
           requires:
-            - build
+            - build2
