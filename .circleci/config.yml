@@ -39,7 +39,7 @@ jobs:
 
 Workflows:
   version: 2
-  build_and_test:
+  build2_and_test2:
     jobs:
       - build2
       - test2:
