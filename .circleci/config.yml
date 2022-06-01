@@ -3,7 +3,7 @@ orbs:
   ruby: circleci/ruby@1.1.2 
 
 jobs: 
-  build:
+  build2:
     docker:
       - image: circleci/ruby:2.7
     working_directory: ~/rails-docker-kyt-3-fhirolnuma/src
@@ -41,7 +41,7 @@ Workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build2
       - test2:
           requires:
             - build
