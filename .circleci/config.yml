@@ -3,7 +3,16 @@ orbs:
   ruby: circleci/ruby@1.1.2 
   heroku: circleci/heroku@1.2.3
 
-jobs: 
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7
+    working_directory: ~/rails-docker-kyt-3-fhirolnuma/src
+    steps: 
+      - checkout:
+          path: ~/rails-docker-kyt-3-fhirolnuma
+      - ruby/install-deps
+
   test: 
     docker:
       - image: circleci/ruby:2.7
@@ -28,14 +37,6 @@ jobs:
       - run:
           name: test
           command: bundle exec rake test
-  build:
-    docker:
-      - image: circleci/ruby:2.7
-    working_directory: ~/rails-docker-kyt-3-fhirolnuma/src
-    steps: 
-      - checkout:
-          path: ~/rails-docker-kyt-3-fhirolnuma
-      - ruby/install-deps
            
   deploy:
     docker:
