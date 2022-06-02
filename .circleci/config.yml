@@ -33,7 +33,7 @@ jobs:
       - ruby/install-deps
       - run:
           name: Database setup
-          command: bundle exec rails db:migrate
+          command: bundle install && bundle exec rails db:migrate
       - run:
           name: test
           command: bundle exec rake test
@@ -57,7 +57,7 @@ jobs:
           command: heroku container:release web -a $HEROKU_APP_NAME
       - run:
           name: database setup
-          command: bundle install && heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
+          command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
 
 workflows:
   version: 2
