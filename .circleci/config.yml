@@ -12,6 +12,7 @@ jobs:
       - checkout:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
+
   test: 
     docker:
       - image: circleci/ruby:2.7
@@ -35,7 +36,8 @@ jobs:
           command: bundle exec rails db:migrate
       - run:
           name: test
-          command: bundle exec rake test 
+          command: bundle exec rake test
+           
   deploy:
     docker:
       - image: circleci/ruby:2.7
