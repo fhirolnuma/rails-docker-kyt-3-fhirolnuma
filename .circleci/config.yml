@@ -57,7 +57,7 @@ jobs:
           command: heroku container:release web -a $HEROKU_APP_NAME
       - run:
           name: database setup
-          command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
+          command: docker buildx build . --platform linux/amd64 -t fhirolnuma/rails-docker-kyt-3-fhirolnuma:latest && docker tag fhirolnuma/rails-docker-kyt-3-fhirolnuma registry.heroku.com/rails-docker-kyt-3-fhirolnuma/web && docker push registry.heroku.com/rails-docker-kyt-3-fhirolnuma/web && heroku container:release web -a rails-docker-kyt-3-fhirolnuma 
 
 workflows:
   version: 2
