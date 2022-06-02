@@ -33,7 +33,7 @@ jobs:
       - ruby/install-deps
       - run:
           name: Database setup
-          command: bundle install --path vendor/cache && bundle exec rails db:migrate && bundle install
+          command: rm src/tmp/pids/server.pid && bundle install --path vendor/cache && bundle exec rails db:migrate
       - run:
           name: test
           command: bundle exec rake test
