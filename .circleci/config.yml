@@ -1,6 +1,6 @@
-version: 2.1 
-orbs: 
-  ruby: circleci/ruby@1.1.2 
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.1.2
   heroku: circleci/heroku@1.2.3
 
 jobs:
@@ -8,12 +8,12 @@ jobs:
     docker:
       - image: circleci/ruby:2.7
     working_directory: ~/rails-docker-kyt-3-fhirolnuma/src
-    steps: 
+    steps:
       - checkout:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
 
-  test: 
+  test:
     docker:
       - image: circleci/ruby:2.7
       - image: circleci/mysql:5.5
@@ -37,7 +37,7 @@ jobs:
       - run:
           name: test
           command: bundle exec rake test
-           
+
   deploy:
     docker:
       - image: circleci/ruby:2.7
@@ -59,17 +59,17 @@ jobs:
           name: database setup
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
 
-Workflows:
+workflows:
   version: 2
   build_test_and_deploy:
     jobs:
-      - test
-      - build:
-          requires:
-            - test
-      - deploy:
+      - build
+      - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
           filters:
             branches:
               only: main
