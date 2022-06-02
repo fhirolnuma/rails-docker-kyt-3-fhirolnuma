@@ -65,11 +65,11 @@ Workflows:
     jobs:
       - build
       - test
-        - requires:
+        requires:
           - build
       - deploy:
         requires:
           - test
         filters:
           branches:
-            only:main
+            only: main
