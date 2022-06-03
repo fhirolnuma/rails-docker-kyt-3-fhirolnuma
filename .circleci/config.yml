@@ -31,9 +31,9 @@ jobs:
       - checkout:
           path: ~/rails-docker-kyt-3-fhirolnuma
       - ruby/install-deps
-      - run:
-          name: Database setup
-          command: gem install bundler && bundle install --path vendor/cache && bundle exec rails db:migrate
+      #- run:
+      #    name: Database setup
+      #    command: gem install bundler && bundle install --path vendor/cache && bundle exec rails db:migrate
       - run:
           name: test
           command: bundle exec rake test
